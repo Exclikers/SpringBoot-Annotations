@@ -1,6 +1,3 @@
-# SpringBoot-Annotations
-# CRUD Controller
-
 PERSON
 GET - List All Person = /api/person
 GET - List Person by Id = /api/person/{id}
