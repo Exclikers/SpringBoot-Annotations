@@ -13,7 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
  
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  
 import lombok.Getter;
 import lombok.Setter;
@@ -21,22 +20,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "contact")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 public class Contact implements Serializable{
   private static final long serialVersionUID = 1L;
   
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long contactId;
-  
-  @Column(name = "landline")
-  private Long landline;
-  
-  @Column(name = "mobile")
-  private Long mobile;
 
-  @Column(name = "email")
+  private Long landline;
+  private Long mobile;
   private String email;
  
   @ManyToOne(fetch = FetchType.LAZY, optional = false)

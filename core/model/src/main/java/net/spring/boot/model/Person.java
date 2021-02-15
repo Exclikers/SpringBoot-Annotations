@@ -17,7 +17,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Getter;
@@ -26,8 +25,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "person")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 public class Person implements Serializable{
   private static final long serialVersionUID = 1L;
   
@@ -36,47 +33,25 @@ public class Person implements Serializable{
   private Long id;
 
   //name
-  @Column(name = "title")
   private String title;
-  
-  @Column(name = "firstName")
   private String firstName;
-
-  @Column(name = "lastName")
   private String lastName;
-
-  @Column(name = "middleName")
   private String middleName;
-
-  @Column(name = "suffix")
   private String suffix;
 
   //address
-  @Column(name = "streetNumber")
   private int streetNumber;
-
-  @Column(name = "barangay")
   private String barangay;
-
-  @Column(name = "municipality")
   private String municipality;
-
-  @Column(name = "zipcode")
   private int zipcode;
 
   //additional info
   @JsonFormat(pattern = "yyyy-MM-dd")
-  @Column(name = "birthdate")
   private Date birthdate;
-
-  @Column(name = "gradeWeightedAverage")
   private double gradeWeightedAverage;
 
   @JsonFormat(pattern = "yyyy-MM-dd")
-  @Column(name = "dateHired")
   private Date dateHired;
-
-  @Column(name = "employmentStatus")
   private String employmentStatus;
   
   @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
